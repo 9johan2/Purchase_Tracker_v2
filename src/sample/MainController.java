@@ -121,24 +121,19 @@ public class MainController {
             progressBar.progressProperty().bind(rightListTask.progressProperty());
             progressBar.setVisible(true);
 
-            rightListTask.setOnSucceeded(e -> progressBar.setVisible(false));
+            leftListTask.setOnSucceeded(e -> {
+                List<Item> leftList = leftListView.getItems();
+                updateLabelSum(leftLabel, leftList);
+            });
+            rightListTask.setOnSucceeded(e -> {
+                progressBar.setVisible(false);
+                List<Item> rightList = rightListView.getItems();
+                updateLabelSum(rightLabel, rightList);
+            });
             rightListTask.setOnFailed(e -> progressBar.setVisible(false));
 
             new Thread(rightListTask).start();
             new Thread(leftListTask).start();
-
-            /*
-             The rest of the code is a workaround to make the labels update properly.
-             I tried retrieving the lists from the ListViews but they always became null for some reason,
-             so this became the solution.
-
-             It works for now but the application would probably get slow if there would be a lot of transactions
-             because of repeating the above query to the database.
-             */
-            List<Item> leftList = dataSource.getList(Item.Buyer.LEFT.getName(), from, to, categoryComboBox.getValue());
-            List<Item> rightList = dataSource.getList(Item.Buyer.RIGHT.getName(), from, to, categoryComboBox.getValue());
-            updateLabelSum(leftLabel, leftList);
-            updateLabelSum(rightLabel, rightList);
         }
     }
 
