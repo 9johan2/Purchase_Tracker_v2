@@ -10,7 +10,7 @@ public interface DatabaseConstants {
     String DB_NAME = "data.db";
     String CONNECTION_STRING = "jdbc:sqlite:C:\\Java Programs\\My Programs\\Economy_v2\\src\\sample\\datamodel\\" + DB_NAME;
 
-        // Table and column names
+        // Table and column names 
     String TABLE = "items";
     String COLUMN_ID = "id";
     String COLUMN_NAME = "name";
@@ -36,7 +36,6 @@ public interface DatabaseConstants {
     String QUERY_CATEGORY_BY_DATE = "SELECT * FROM " + TABLE + " WHERE " + COLUMN_BUYER + " = ? AND " +
             COLUMN_CATEGORY + " = ? AND " + COLUMN_DATE + " >= ? AND " + COLUMN_DATE + " <= ?" + ORDER_BY_DATE;
 
-        // INSERT INTO items (name, category, price, date, buyer) VALUES("Kalle", "Other", "22.65", "2021-07-25", "Johan")
     String INSERT_ITEM = "INSERT INTO " + TABLE + " (" + COLUMN_NAME + ", " + COLUMN_CATEGORY + ", " + COLUMN_PRICE + ", " +
                 COLUMN_DATE + ", " + COLUMN_BUYER + ") VALUES(?, ? ,? ,? , ?)";
 
