@@ -10,7 +10,7 @@ public interface DatabaseConstants {
     String DB_NAME = "data.db";
     String CONNECTION_STRING = "jdbc:sqlite:C:\\Java Programs\\My Programs\\Economy_v2\\src\\sample\\datamodel\\" + DB_NAME;
 
-        // Table and column names
+        // Table and column names 
     String TABLE = "items";
     String COLUMN_ID = "id";
     String COLUMN_NAME = "name";
