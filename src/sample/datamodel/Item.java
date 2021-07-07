@@ -76,7 +76,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return this.category + "\t" + this.name + "\n" + this.price + "\t" + this.dateOfPurchase.toString() + " ID: " + id + " Buyer: " + this.buyer;
+        return this.category + "\t" + this.name + "\n" + this.price + "\t" + this.dateOfPurchase.toString();
     }
 
     public static List<String> getCategories() {
