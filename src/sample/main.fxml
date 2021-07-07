@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="mainWindow" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.MainController">
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="New..." />
+                    <MenuItem text="Open" />
+                    <MenuItem text="Save" />
+                    <MenuItem text="Save as..." />
+                    <SeparatorMenuItem />
+                    <MenuItem text="Import" />
+                    <MenuItem text="Export" />
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit" />
+                </Menu>
+            </MenuBar>
+
+            <GridPane hgap="10" vgap="5">
+                <DatePicker fx:id="filterFrom" prefWidth="120" promptText="Filter from" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <DatePicker fx:id="filterTo" prefWidth="120" promptText="Filter to" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <ComboBox fx:id="categoryComboBox" value="No filter" GridPane.columnIndex="3" GridPane.rowIndex="1">
+
+                </ComboBox>
+                <Button onAction="#handleRefreshButton" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                    <tooltip>
+                        <Tooltip showDelay="500ms" text="Refresh" />
+                    </tooltip>
+                    <graphic>
+                        <ImageView>
+                            <Image url="@/toolbarButtonGraphics/general/Refresh16.gif" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button text="Add item" GridPane.columnIndex="5" GridPane.rowIndex="1" onAction="#addItem"/>
+            </GridPane>
+        </VBox>
+    </top>
+
+    <center>
+        <GridPane hgap="10" vgap="10">
+            <ListView fx:id="leftListView" prefWidth="300" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ListView fx:id="rightListView" prefWidth="300" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="leftLabel" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <font>
+                    <Font size="15" />
+                </font>
+                <padding>
+                    <Insets left="15" />
+                </padding>
+            </Label>
+            <Label fx:id="rightLabel" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                <font>
+                    <Font size="15" />
+                </font>
+                <padding>
+                    <Insets left="15" />
+                </padding>
+            </Label>
+
+            <Label fx:id="statusLabel" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <ProgressBar fx:id="progressBar" translateX="150" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3" visible="false"/>
+        </GridPane>
+    </center>
+
+
+
+</BorderPane>
