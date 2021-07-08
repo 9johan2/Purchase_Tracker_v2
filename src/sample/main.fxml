@@ -11,15 +11,15 @@
         <VBox>
             <MenuBar>
                 <Menu text="File">
-                    <MenuItem text="New..." />
-                    <MenuItem text="Open" />
-                    <MenuItem text="Save" />
-                    <MenuItem text="Save as..." />
-                    <SeparatorMenuItem />
+<!--                    <MenuItem text="New..." />-->
+<!--                    <MenuItem text="Open" />-->
+<!--                    <MenuItem text="Save" />-->
+<!--                    <MenuItem text="Save as..." />-->
+<!--                    <SeparatorMenuItem />-->
                     <MenuItem text="Import" onAction="#importData"/>
                     <MenuItem text="Export" onAction="#exportData"/>
                     <SeparatorMenuItem/>
-                    <MenuItem text="Exit" />
+<!--                    <MenuItem text="Exit" />-->
                 </Menu>
             </MenuBar>
 
