@@ -26,7 +26,9 @@ public interface DatabaseConstants {
 
     String ORDER_BY_DATE = " ORDER BY " + COLUMN_DATE;
 
-    String QUERY_ALL = "SELECT * FROM " + TABLE + " WHERE " + COLUMN_BUYER + " = ?" + ORDER_BY_DATE;
+    String QUERY_ALL = "SELECT * FROM " + TABLE + ORDER_BY_DATE;
+
+    String QUERY_ALL_BY_BUYER = "SELECT * FROM " + TABLE + " WHERE " + COLUMN_BUYER + " = ?" + ORDER_BY_DATE;
 
     String QUERY_ALL_BY_DATE = "SELECT * FROM " + TABLE + " WHERE " + COLUMN_BUYER + " = ? AND " +
             COLUMN_DATE + " >= ? AND " + COLUMN_DATE + " <= ?" + ORDER_BY_DATE;
