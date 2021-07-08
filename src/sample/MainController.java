@@ -10,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import sample.datamodel.DataSource;
 import sample.datamodel.Item;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -104,14 +105,14 @@ public class MainController {
             Task<ObservableList<Item>> leftListTask = new Task<>() {
                 @Override
                 protected ObservableList<Item> call() {
-                    return FXCollections.observableArrayList(dataSource.getList(Item.Buyer.LEFT.getName(), from, to, categoryComboBox.getValue()));
+                    return FXCollections.observableArrayList(dataSource.filteredQuery(Item.Buyer.LEFT.getName(), from, to, categoryComboBox.getValue()));
                 }
             };
 
             Task<ObservableList<Item>> rightListTask = new Task<>() {
                 @Override
                 protected ObservableList<Item> call() {
-                    return FXCollections.observableArrayList(dataSource.getList(Item.Buyer.RIGHT.getName(), from, to, categoryComboBox.getValue()));
+                    return FXCollections.observableArrayList(dataSource.filteredQuery(Item.Buyer.RIGHT.getName(), from, to, categoryComboBox.getValue()));
                 }
             };
 
@@ -201,5 +202,38 @@ public class MainController {
                 statusLabel.setText("Error while deleting item");
             }
         }
+    }
+
+    @FXML
+    public void exportData() {
+        try {
+            dataSource.exportData();
+        } catch (FileNotFoundException e) {
+            errorAlert.setTitle("File not found");
+            errorAlert.setContentText("The file you specified can not be found");
+            errorAlert.showAndWait();
+        } catch (IOException e) {
+            errorAlert.setTitle("Error");
+            errorAlert.setContentText("An unexpected error occurred");
+            errorAlert.showAndWait();
+        }
+
+    }
+
+    @FXML
+    public void importData() {
+        try {
+           dataSource.importData();
+
+        } catch (FileNotFoundException e) {
+            errorAlert.setTitle("File not found");
+            errorAlert.setContentText("The file you specified can not be found");
+            errorAlert.showAndWait();
+        } catch (Exception e) {
+            errorAlert.setTitle("Error");
+            errorAlert.setContentText("An unexpected error occurred");
+            errorAlert.showAndWait();
+        }
+
     }
 }
