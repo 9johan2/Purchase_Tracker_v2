@@ -11,15 +11,15 @@
         <VBox>
             <MenuBar>
                 <Menu text="File">
-                    <MenuItem text="New..." />
-                    <MenuItem text="Open" />
-                    <MenuItem text="Save" />
-                    <MenuItem text="Save as..." />
-                    <SeparatorMenuItem />
+<!--                    <MenuItem text="New..." />-->
+<!--                    <MenuItem text="Open" />-->
+<!--                    <MenuItem text="Save" />-->
+<!--                    <MenuItem text="Save as..." />-->
+<!--                    <SeparatorMenuItem />-->
                     <MenuItem text="Import" onAction="#importData"/>
                     <MenuItem text="Export" onAction="#exportData"/>
                     <SeparatorMenuItem/>
-                    <MenuItem text="Exit" />
+                    <MenuItem text="Exit" onAction="#exit"/>
                 </Menu>
             </MenuBar>
 
@@ -29,7 +29,7 @@
                 <ComboBox fx:id="categoryComboBox" value="No filter" GridPane.columnIndex="3" GridPane.rowIndex="1">
 
                 </ComboBox>
-                <Button onAction="#handleRefreshButton" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                <Button onAction="#refreshLists" GridPane.columnIndex="4" GridPane.rowIndex="1">
                     <tooltip>
                         <Tooltip showDelay="500ms" text="Refresh" />
                     </tooltip>
