@@ -19,7 +19,7 @@
                     <MenuItem text="Import" onAction="#importData"/>
                     <MenuItem text="Export" onAction="#exportData"/>
                     <SeparatorMenuItem/>
-<!--                    <MenuItem text="Exit" />-->
+                    <MenuItem text="Exit" onAction="#exit"/>
                 </Menu>
             </MenuBar>
 
@@ -29,7 +29,7 @@
                 <ComboBox fx:id="categoryComboBox" value="No filter" GridPane.columnIndex="3" GridPane.rowIndex="1">
 
                 </ComboBox>
-                <Button onAction="#handleRefreshButton" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                <Button onAction="#refreshLists" GridPane.columnIndex="4" GridPane.rowIndex="1">
                     <tooltip>
                         <Tooltip showDelay="500ms" text="Refresh" />
                     </tooltip>
@@ -69,7 +69,4 @@
             <ProgressBar fx:id="progressBar" translateX="150" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3" visible="false"/>
         </GridPane>
     </center>
-
-
-
 </BorderPane>
